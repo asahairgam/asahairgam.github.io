@@ -1,0 +1,1253 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日主题大赛入口导航 - 官方赛事视频社区_一站式参赛报名与作品展映</title>
+<meta name="description" content="每日主题大赛入口导航官方网站，聚合每日主题赛事报名入口、参赛攻略、作品展映与创作者社区，为企业与创作者搭建高品质赛事内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Cpath d='M18 44V20l14 8 14-8v24' fill='none' stroke='%2338bdf8' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='4' fill='%23f59e0b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --dtc-bg:#0b1220;
+  --dtc-bg-soft:#111c2f;
+  --dtc-panel:#152238;
+  --dtc-panel-2:#1b2b45;
+  --dtc-line:rgba(120,160,210,.18);
+  --dtc-line-strong:rgba(120,180,240,.38);
+  --dtc-text:#e8f0fa;
+  --dtc-muted:#9db1c9;
+  --dtc-dim:#6f86a3;
+  --dtc-cyan:#38bdf8;
+  --dtc-cyan-soft:rgba(56,189,248,.14);
+  --dtc-lime:#a3e635;
+  --dtc-amber:#f59e0b;
+  --dtc-magenta:#f472b6;
+  --dtc-radius:18px;
+  --dtc-radius-sm:10px;
+  --dtc-sticky:104px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--dtc-sticky)}
+body{
+  background:
+    radial-gradient(1200px 600px at 12% -8%,rgba(56,189,248,.13),transparent 60%),
+    radial-gradient(900px 520px at 92% 4%,rgba(244,114,182,.10),transparent 62%),
+    var(--dtc-bg);
+  color:var(--dtc-text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+ul,ol{list-style:none}
+.dtc-wrap{width:min(1180px,92vw);margin:0 auto}
+.dtc-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ============ 公告条 + 页头 吸顶 ============ */
+.dtc-sticky-shell{position:sticky;top:0;z-index:80}
+.dtc-announce{
+  background:linear-gradient(90deg,#0e2a4a,#123a5e 45%,#0e2a4a);
+  border-bottom:1px solid rgba(56,189,248,.28);
+  font-size:13.5px;
+  color:#cfe6ff;
+}
+.dtc-announce-inner{display:flex;align-items:center;gap:14px;padding:8px 0;min-height:38px}
+.dtc-announce-tag{
+  flex:0 0 auto;background:var(--dtc-amber);color:#20160a;font-weight:700;
+  font-size:11.5px;letter-spacing:.06em;padding:2px 9px;border-radius:6px;
+}
+.dtc-announce-list{display:flex;gap:26px;overflow:hidden;flex:1 1 auto}
+.dtc-announce-list li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.dtc-announce-list b{color:#fff;font-weight:600}
+.dtc-announce-link{flex:0 0 auto;color:var(--dtc-cyan);font-size:12.5px;border-bottom:1px solid rgba(56,189,248,.45)}
+@media(max-width:760px){.dtc-announce-list{gap:18px}.dtc-announce-list li:nth-child(n+2){display:none}}
+
+.dtc-header{
+  background:rgba(11,18,32,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--dtc-line);
+}
+.dtc-header-inner{display:flex;align-items:center;gap:22px;height:66px}
+.dtc-logo{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.dtc-logo-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(140deg,var(--dtc-cyan),#2563eb);display:grid;place-items:center;box-shadow:0 6px 18px rgba(37,99,235,.35)}
+.dtc-logo-mark span{width:12px;height:12px;border:3px solid #08121f;border-radius:3px}
+.dtc-logo-text{font-weight:800;font-size:17px;letter-spacing:.02em;line-height:1.2}
+.dtc-logo-text small{display:block;font-size:10.5px;color:var(--dtc-dim);font-weight:500;letter-spacing:.14em}
+.dtc-nav{display:flex;gap:4px;margin-left:6px;flex:1 1 auto}
+.dtc-nav a{
+  font-size:14px;color:var(--dtc-muted);padding:8px 11px;border-radius:8px;transition:.2s;
+}
+.dtc-nav a:hover{color:#fff;background:var(--dtc-cyan-soft)}
+.dtc-head-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.dtc-search{position:relative;display:flex;align-items:center}
+.dtc-search input{
+  width:200px;background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:9px;
+  color:var(--dtc-text);padding:8px 12px 8px 32px;font-size:13px;outline:none;transition:.22s;
+}
+.dtc-search input:focus{border-color:var(--dtc-line-strong);width:236px;background:#0f1c2e}
+.dtc-search svg{position:absolute;left:10px;width:14px;height:14px;stroke:var(--dtc-dim)}
+.dtc-menu-btn{display:none;width:38px;height:38px;border-radius:9px;border:1px solid var(--dtc-line);align-items:center;justify-content:center}
+.dtc-menu-btn span{display:block;width:16px;height:2px;background:var(--dtc-muted);position:relative}
+.dtc-menu-btn span::before,.dtc-menu-btn span::after{content:"";position:absolute;left:0;width:16px;height:2px;background:var(--dtc-muted)}
+.dtc-menu-btn span::before{top:-5px}.dtc-menu-btn span::after{top:5px}
+.dtc-search-hint{font-size:12px;color:var(--dtc-cyan);min-height:0}
+@media(max-width:980px){
+  .dtc-nav{position:fixed;left:0;right:0;top:var(--dtc-sticky);background:#0d1828;flex-direction:column;
+    padding:10px 5vw 18px;border-bottom:1px solid var(--dtc-line);display:none;margin:0;gap:2px}
+  .dtc-nav.dtc-open{display:flex}
+  .dtc-menu-btn{display:flex}
+  .dtc-header-inner{height:60px;gap:12px}
+  .dtc-search input{width:132px}
+  .dtc-search input:focus{width:152px}
+  .dtc-head-tools .dtc-btn-ghost{display:none}
+}
+@media(max-width:560px){.dtc-search{display:none}.dtc-logo-text small{display:none}}
+
+/* ============ 通用组件 ============ */
+.dtc-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:11px;
+  font-size:14px;font-weight:600;transition:.2s;border:1px solid transparent;white-space:nowrap;
+}
+.dtc-btn-main{background:linear-gradient(135deg,var(--dtc-cyan),#2563eb);color:#04121f;box-shadow:0 8px 22px rgba(56,189,248,.24)}
+.dtc-btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(56,189,248,.34)}
+.dtc-btn-ghost{border-color:var(--dtc-line-strong);color:#cfe6ff}
+.dtc-btn-ghost:hover{background:var(--dtc-cyan-soft);color:#fff}
+.dtc-btn-tiny{padding:6px 13px;font-size:12.5px;border-radius:8px;border-color:var(--dtc-line);color:var(--dtc-muted)}
+.dtc-btn-tiny:hover{color:#fff;border-color:var(--dtc-line-strong);background:var(--dtc-cyan-soft)}
+.dtc-btn-tiny.dtc-on{color:var(--dtc-cyan);border-color:rgba(56,189,248,.5);background:var(--dtc-cyan-soft)}
+
+.dtc-section{padding:66px 0}
+.dtc-section + .dtc-section{border-top:1px solid var(--dtc-line)}
+.dtc-sec-head{margin-bottom:34px;max-width:820px}
+.dtc-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.18em;
+  color:var(--dtc-cyan);text-transform:uppercase;font-weight:600;margin-bottom:12px;
+}
+.dtc-eyebrow::before{content:"";width:22px;height:1px;background:var(--dtc-cyan)}
+.dtc-h2{font-size:clamp(23px,3.2vw,33px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.dtc-h2 em{font-style:normal;color:var(--dtc-cyan)}
+.dtc-sec-sub{margin-top:12px;color:var(--dtc-muted);font-size:15px;max-width:720px}
+.dtc-h3{font-size:17px;font-weight:700;line-height:1.5}
+.dtc-panel{background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:var(--dtc-radius)}
+.dtc-tag{
+  display:inline-block;font-size:11.5px;padding:2.5px 9px;border-radius:20px;
+  background:rgba(56,189,248,.1);color:#8ed4f7;border:1px solid rgba(56,189,248,.22);
+}
+.dtc-tag-lime{background:rgba(163,230,53,.1);color:#c8f06a;border-color:rgba(163,230,53,.25)}
+.dtc-tag-amber{background:rgba(245,158,11,.1);color:#fbc66a;border-color:rgba(245,158,11,.26)}
+.dtc-tag-pink{background:rgba(244,114,182,.1);color:#f9b3d4;border-color:rgba(244,114,182,.24)}
+.dtc-meta{font-size:12.5px;color:var(--dtc-dim);display:flex;flex-wrap:wrap;gap:14px}
+.dtc-meta b{color:var(--dtc-muted);font-weight:600}
+
+/* ============ 首屏（左文 右图 + 数据条） ============ */
+.dtc-hero{padding:52px 0 60px;position:relative;overflow:hidden}
+.dtc-hero::after{
+  content:"";position:absolute;right:-16%;top:-24%;width:620px;height:620px;border-radius:50%;
+  background:radial-gradient(circle,rgba(56,189,248,.16),transparent 66%);pointer-events:none;
+}
+.dtc-hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:52px;align-items:center;position:relative;z-index:1}
+.dtc-hero-badge{
+  display:inline-flex;align-items:center;gap:9px;font-size:12.5px;color:#bfe4ff;
+  border:1px solid var(--dtc-line-strong);background:rgba(56,189,248,.08);
+  padding:6px 14px;border-radius:30px;margin-bottom:22px;
+}
+.dtc-hero-badge i{width:7px;height:7px;border-radius:50%;background:var(--dtc-lime);box-shadow:0 0 0 4px rgba(163,230,53,.16);font-style:normal}
+.dtc-hero h1{
+  font-size:clamp(31px,4.6vw,52px);line-height:1.16;font-weight:900;letter-spacing:-.02em;
+  margin-bottom:20px;
+}
+.dtc-hero h1 span{color:var(--dtc-cyan)}
+.dtc-hero-lead{font-size:15.5px;color:var(--dtc-muted);max-width:560px;margin-bottom:18px}
+.dtc-hero-intro{font-size:14.5px;color:var(--dtc-muted);max-width:600px;border-left:2px solid var(--dtc-line-strong);padding-left:16px;margin-bottom:26px}
+.dtc-hero-intro b{color:#d6e9fb;font-weight:600}
+.dtc-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+.dtc-hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.dtc-stat{
+  background:linear-gradient(160deg,var(--dtc-panel),#101d31);
+  border:1px solid var(--dtc-line);border-radius:14px;padding:14px 16px;
+}
+.dtc-stat b{display:block;font-size:clamp(20px,2.4vw,26px);font-weight:800;color:#fff;letter-spacing:-.01em}
+.dtc-stat span{font-size:12px;color:var(--dtc-dim)}
+.dtc-hero-visual{position:relative}
+.dtc-hero-fig{
+  border-radius:22px;overflow:hidden;border:1px solid var(--dtc-line-strong);
+  box-shadow:0 30px 70px rgba(2,8,20,.6);
+}
+.dtc-hero-fig img{width:100%;height:auto;aspect-ratio:16/11;object-fit:cover}
+.dtc-hero-float{
+  position:absolute;left:-19px;bottom:22px;background:rgba(13,24,40,.94);
+  backdrop-filter:blur(10px);border:1px solid var(--dtc-line-strong);border-radius:14px;
+  padding:12px 16px;max-width:250px;box-shadow:0 18px 40px rgba(0,0,0,.45);
+}
+.dtc-hero-float strong{display:block;font-size:13px;color:#fff;margin-bottom:3px}
+.dtc-hero-float span{font-size:11.5px;color:var(--dtc-muted)}
+@media(max-width:900px){
+  .dtc-hero-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  .dtc-hero-float{left:10px;bottom:12px;max-width:210px}
+}
+
+/* ============ 今日焦点（一幅重点大图 + 文字列表） ============ */
+.dtc-focus-grid{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(0,.78fr);gap:30px}
+.dtc-focus-main{
+  background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:var(--dtc-radius);
+  overflow:hidden;transition:.25s;
+}
+.dtc-focus-main:hover{border-color:var(--dtc-line-strong);transform:translateY(-3px)}
+.dtc-focus-main figure{position:relative}
+.dtc-focus-main img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.dtc-focus-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:62px;height:62px;border-radius:50%;background:rgba(4,14,26,.72);
+  border:1.5px solid rgba(255,255,255,.45);display:grid;place-items:center;backdrop-filter:blur(4px);
+}
+.dtc-focus-play::after{content:"";width:0;height:0;border-left:17px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.dtc-focus-body{padding:22px 24px 24px}
+.dtc-focus-body .dtc-h3{font-size:20px;margin:10px 0 9px}
+.dtc-focus-body p{font-size:14px;color:var(--dtc-muted);margin-bottom:16px}
+.dtc-focus-side{display:flex;flex-direction:column;gap:12px}
+.dtc-side-item{
+  background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:14px;
+  padding:16px 18px;transition:.22s;display:block;
+}
+.dtc-side-item:hover{border-color:var(--dtc-line-strong);background:var(--dtc-panel-2);transform:translateX(3px)}
+.dtc-side-item .dtc-h3{font-size:15.5px;margin:7px 0 6px}
+.dtc-side-item p{font-size:13px;color:var(--dtc-dim);margin-bottom:10px}
+@media(max-width:900px){.dtc-focus-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* ============ 入口导航网格 ============ */
+.dtc-entry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:16px}
+.dtc-entry{
+  background:linear-gradient(170deg,var(--dtc-panel),#101d31);
+  border:1px solid var(--dtc-line);border-radius:15px;padding:20px;transition:.24s;
+  display:flex;flex-direction:column;gap:9px;min-height:150px;
+}
+.dtc-entry:hover{border-color:rgba(56,189,248,.5);transform:translateY(-4px);box-shadow:0 16px 34px rgba(2,10,22,.5)}
+.dtc-entry-ico{
+  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  font-size:16px;font-weight:800;color:#04121f;background:linear-gradient(135deg,var(--dtc-cyan),#60a5fa);
+}
+.dtc-entry:nth-child(2n) .dtc-entry-ico{background:linear-gradient(135deg,var(--dtc-lime),#34d399)}
+.dtc-entry:nth-child(3n) .dtc-entry-ico{background:linear-gradient(135deg,var(--dtc-amber),#fbbf24)}
+.dtc-entry:nth-child(4n) .dtc-entry-ico{background:linear-gradient(135deg,var(--dtc-magenta),#a78bfa)}
+.dtc-entry h3{font-size:15.5px;font-weight:700}
+.dtc-entry p{font-size:12.8px;color:var(--dtc-dim);flex:1 1 auto}
+.dtc-entry .dtc-entry-go{font-size:12.5px;color:var(--dtc-cyan);font-weight:600}
+
+/* ============ 热门视频流（单列图文列表） ============ */
+.dtc-videos{display:grid;gap:0}
+.dtc-video-item{
+  display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:18px;align-items:start;
+  padding:22px 0;border-bottom:1px dashed var(--dtc-line);
+}
+.dtc-video-item:first-child{padding-top:0}
+.dtc-video-item:last-child{border-bottom:0}
+.dtc-video-rank{
+  font-size:22px;font-weight:900;color:transparent;-webkit-text-stroke:1.2px var(--dtc-line-strong);
+  line-height:1.2;padding-top:2px;text-align:center;
+}
+.dtc-video-item:nth-child(-n+3) .dtc-video-rank{-webkit-text-stroke:1.2px var(--dtc-cyan);color:rgba(56,189,248,.14)}
+.dtc-video-body h3{font-size:16.5px;margin-bottom:7px;line-height:1.5}
+.dtc-video-body p{font-size:13.5px;color:var(--dtc-muted);margin-bottom:11px;max-width:720px}
+.dtc-video-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:11px}
+.dtc-video-acts{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.dtc-video-metrics{display:flex;flex-direction:column;gap:6px;align-items:flex-end;font-size:12px;color:var(--dtc-dim);white-space:nowrap}
+@media(max-width:760px){
+  .dtc-video-item{grid-template-columns:38px minmax(0,1fr);gap:12px}
+  .dtc-video-metrics{grid-column:2;flex-direction:row;gap:14px;align-items:center;flex-wrap:wrap}
+  .dtc-video-rank{font-size:18px}
+}
+
+/* ============ 专题 ============ */
+.dtc-topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:18px}
+.dtc-topic{
+  background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:var(--dtc-radius);
+  padding:22px 22px 18px;position:relative;overflow:hidden;transition:.24s;
+}
+.dtc-topic::before{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:linear-gradient(var(--dtc-cyan),transparent)}
+.dtc-topic:hover{border-color:var(--dtc-line-strong);background:var(--dtc-panel-2)}
+.dtc-topic-status{font-size:11.5px;color:var(--dtc-lime);display:inline-flex;align-items:center;gap:6px}
+.dtc-topic-status i{width:6px;height:6px;border-radius:50%;background:var(--dtc-lime);font-style:normal}
+.dtc-topic h3{font-size:17px;margin:9px 0 8px}
+.dtc-topic > p{font-size:13.3px;color:var(--dtc-muted);margin-bottom:14px}
+.dtc-topic ol{display:grid;gap:8px}
+.dtc-topic ol li{
+  font-size:13px;color:#b9cde3;display:flex;gap:9px;align-items:flex-start;
+  padding:7px 0;border-top:1px solid var(--dtc-line);
+}
+.dtc-topic ol li em{font-style:normal;color:var(--dtc-dim);font-size:11.5px;flex:0 0 auto;padding-top:1px}
+
+/* ============ 作者（双列简介） ============ */
+.dtc-authors{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:18px}
+.dtc-author{
+  background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:var(--dtc-radius);
+  padding:22px;display:flex;flex-direction:column;gap:12px;transition:.24s;
+}
+.dtc-author:hover{border-color:var(--dtc-line-strong);transform:translateY(-3px)}
+.dtc-author-top{display:flex;gap:14px;align-items:center}
+.dtc-avatar{
+  width:52px;height:52px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  font-weight:800;font-size:19px;color:#04121f;background:linear-gradient(140deg,var(--dtc-cyan),#818cf8);
+  box-shadow:0 6px 16px rgba(56,189,248,.22);
+}
+.dtc-author:nth-child(2n) .dtc-avatar{background:linear-gradient(140deg,var(--dtc-lime),#2dd4bf)}
+.dtc-author:nth-child(3n) .dtc-avatar{background:linear-gradient(140deg,var(--dtc-amber),#fb7185)}
+.dtc-author:nth-child(4n) .dtc-avatar{background:linear-gradient(140deg,var(--dtc-magenta),#a78bfa)}
+.dtc-author-top h3{font-size:15.5px}
+.dtc-author-top span{font-size:12px;color:var(--dtc-dim)}
+.dtc-author p{font-size:13.2px;color:var(--dtc-muted);flex:1 1 auto}
+.dtc-author-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+
+/* ============ 评论（双列短评） ============ */
+.dtc-comments{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.dtc-comment{
+  background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:14px;padding:18px 20px;
+}
+.dtc-comment-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.dtc-comment-av{width:30px;height:30px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#04121f;background:linear-gradient(140deg,var(--dtc-cyan),#93c5fd)}
+.dtc-comment:nth-child(2n) .dtc-comment-av{background:linear-gradient(140deg,var(--dtc-lime),#5eead4)}
+.dtc-comment:nth-child(3n) .dtc-comment-av{background:linear-gradient(140deg,var(--dtc-amber),#fda4af)}
+.dtc-comment:nth-child(4n) .dtc-comment-av{background:linear-gradient(140deg,var(--dtc-magenta),#c4b5fd)}
+.dtc-comment-top b{font-size:13px;font-weight:600}
+.dtc-comment-top span{font-size:11.5px;color:var(--dtc-dim);margin-left:auto}
+.dtc-comment p{font-size:13.4px;color:#c2d5e9;line-height:1.72}
+.dtc-comment p.dtc-quote{border-left:2px solid var(--dtc-cyan);padding-left:12px;color:var(--dtc-muted);font-style:italic}
+
+/* ============ 榜单 ============ */
+.dtc-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
+.dtc-board-col{background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:var(--dtc-radius);padding:20px}
+.dtc-board-col h3{font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.dtc-board-col h3::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--dtc-cyan)}
+.dtc-board-col:nth-child(2) h3::before{background:var(--dtc-lime)}
+.dtc-board-col:nth-child(3) h3::before{background:var(--dtc-amber)}
+.dtc-board-col ol{display:grid;gap:10px}
+.dtc-board-col li{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:9px;font-size:13px;align-items:baseline}
+.dtc-board-col li em{font-style:normal;font-weight:800;color:var(--dtc-dim);font-size:12px}
+.dtc-board-col li span{color:#c6d8ea;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dtc-board-col li b{font-size:11.5px;color:var(--dtc-cyan);font-weight:600}
+
+/* ============ 关键词解析长文 ============ */
+.dtc-deep{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:36px;align-items:start}
+.dtc-deep-body p{font-size:14.6px;color:#c0d2e5;margin-bottom:16px}
+.dtc-deep-body h3{font-size:17.5px;margin:26px 0 12px;padding-left:12px;border-left:3px solid var(--dtc-cyan)}
+.dtc-deep-body h3:first-of-type{margin-top:0}
+.dtc-deep-body strong{color:#eaf4ff;font-weight:600}
+.dtc-deep-aside{display:grid;gap:14px;position:sticky;top:calc(var(--dtc-sticky) + 16px)}
+.dtc-aside-card{background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:14px;padding:18px}
+.dtc-aside-card h4{font-size:13.5px;margin-bottom:10px;color:#dceaf8}
+.dtc-aside-card ul{display:grid;gap:9px}
+.dtc-aside-card li{font-size:12.8px;color:var(--dtc-muted);display:flex;gap:8px}
+.dtc-aside-card li b{color:var(--dtc-cyan);flex:0 0 auto}
+@media(max-width:940px){.dtc-deep{grid-template-columns:minmax(0,1fr)}.dtc-deep-aside{position:static}}
+
+/* ============ 动态 / FAQ / 合作 ============ */
+.dtc-three{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.dtc-news{display:grid;gap:12px}
+.dtc-news-item{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px dashed var(--dtc-line)}
+.dtc-news-item:last-child{border-bottom:0}
+.dtc-news-date{font-size:11.5px;color:var(--dtc-cyan);font-weight:700;line-height:1.5}
+.dtc-news-item h4{font-size:14px;margin-bottom:4px}
+.dtc-news-item p{font-size:12.8px;color:var(--dtc-dim)}
+.dtc-faq{display:grid;gap:10px}
+.dtc-faq details{background:var(--dtc-panel);border:1px solid var(--dtc-line);border-radius:12px;padding:14px 18px;transition:.2s}
+.dtc-faq details[open]{border-color:var(--dtc-line-strong);background:var(--dtc-panel-2)}
+.dtc-faq summary{cursor:pointer;font-size:14px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.dtc-faq summary::-webkit-details-marker{display:none}
+.dtc-faq summary::after{content:"+";color:var(--dtc-cyan);font-weight:700;font-size:16px;flex:0 0 auto}
+.dtc-faq details[open] summary::after{content:"–"}
+.dtc-faq p{font-size:13.2px;color:var(--dtc-muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--dtc-line)}
+.dtc-partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.dtc-partner{
+  border:1px dashed var(--dtc-line);border-radius:12px;padding:18px 12px;text-align:center;
+  font-size:13px;color:var(--dtc-muted);transition:.2s;
+}
+.dtc-partner:hover{border-color:var(--dtc-line-strong);color:#fff;background:rgba(56,189,248,.06)}
+.dtc-partner b{display:block;font-size:15px;color:#dbeaf8;margin-bottom:3px;font-weight:700}
+
+/* ============ 投稿 CTA ============ */
+.dtc-cta{
+  background:linear-gradient(120deg,rgba(56,189,248,.14),rgba(244,114,182,.1)),var(--dtc-panel);
+  border:1px solid var(--dtc-line-strong);border-radius:22px;padding:38px 34px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;
+}
+.dtc-cta h2{font-size:clamp(21px,2.8vw,28px);margin-bottom:9px}
+.dtc-cta p{font-size:14px;color:var(--dtc-muted);max-width:620px}
+@media(max-width:720px){.dtc-cta{grid-template-columns:minmax(0,1fr);padding:28px 22px}}
+
+/* ============ 页脚 ============ */
+.dtc-footer{border-top:1px solid var(--dtc-line);background:#08101c;padding:52px 0 26px;margin-top:20px}
+.dtc-footer-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:32px;margin-bottom:34px}
+.dtc-footer-brand p{font-size:13px;color:var(--dtc-dim);margin:14px 0 0;max-width:330px}
+.dtc-footer-col h4{font-size:13px;color:#dbeaf8;margin-bottom:13px;letter-spacing:.04em}
+.dtc-footer-col ul{display:grid;gap:9px}
+.dtc-footer-col a{font-size:12.8px;color:var(--dtc-dim);transition:.2s}
+.dtc-footer-col a:hover{color:var(--dtc-cyan)}
+.dtc-footer-bottom{border-top:1px solid var(--dtc-line);padding-top:20px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:12.3px;color:var(--dtc-dim)}
+@media(max-width:820px){.dtc-footer-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px}}
+
+/* ============ Toast / 悬浮 / 弹层 ============ */
+.dtc-toast{
+  position:fixed;left:50%;bottom:32px;transform:translate(-50%,26px);opacity:0;pointer-events:none;
+  background:#0f253d;border:1px solid var(--dtc-line-strong);color:#e2f0ff;
+  padding:11px 22px;border-radius:30px;font-size:13.5px;z-index:200;transition:.28s;
+  box-shadow:0 14px 34px rgba(0,0,0,.5);
+}
+.dtc-toast.dtc-show{opacity:1;transform:translate(-50%,0)}
+.dtc-top{
+  position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:12px;z-index:90;
+  background:var(--dtc-panel-2);border:1px solid var(--dtc-line-strong);color:var(--dtc-cyan);
+  display:grid;place-items:center;opacity:0;pointer-events:none;transition:.28s;font-size:16px;
+}
+.dtc-top.dtc-show{opacity:1;pointer-events:auto}
+.dtc-top:hover{background:var(--dtc-cyan-soft)}
+.dtc-modal{
+  position:fixed;inset:0;z-index:150;display:none;place-items:center;padding:20px;
+  background:rgba(4,10,20,.72);backdrop-filter:blur(6px);
+}
+.dtc-modal.dtc-show{display:grid}
+.dtc-modal-box{
+  background:#101d31;border:1px solid var(--dtc-line-strong);border-radius:18px;
+  padding:26px;width:min(560px,100%);max-height:82vh;overflow:auto;
+}
+.dtc-modal-box h3{font-size:18px;margin-bottom:12px}
+.dtc-modal-box p{font-size:13.6px;color:var(--dtc-muted);margin-bottom:12px}
+.dtc-modal-box .dtc-modal-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.dtc-modal-close{float:right;font-size:20px;color:var(--dtc-dim);line-height:1}
+.dtc-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.dtc-share-row button{border:1px solid var(--dtc-line);border-radius:9px;padding:8px 14px;font-size:13px;color:var(--dtc-muted)}
+.dtc-share-row button:hover{color:#fff;border-color:var(--dtc-line-strong);background:var(--dtc-cyan-soft)}
+.dtc-hidden{display:none !important}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="dtc-sticky-shell">
+  <div class="dtc-announce">
+    <div class="dtc-wrap dtc-announce-inner">
+      <span class="dtc-announce-tag">今日更新</span>
+      <ul class="dtc-announce-list">
+        <li><b>11月22日「城市夜行」主题赛道</b>开放报名，评审席新增 2 位纪实导演</li>
+        <li><b>「30秒讲清一件事」挑战</b>投稿突破 1,842 条，投票通道今晚 22:00 关闭</li>
+        <li><b>新人扶持计划第 7 期</b>名单公布，12 位创作者获得官方流量池推荐</li>
+      </ul>
+      <a class="dtc-announce-link" href="#dtc-entry">查看全部入口 →</a>
+    </div>
+  </div>
+
+  <header class="dtc-header">
+    <div class="dtc-wrap dtc-header-inner">
+      <a class="dtc-logo" href="#dtc-top" aria-label="每日主题大赛入口导航 官方首页">
+        <span class="dtc-logo-mark"><span></span></span>
+        <span class="dtc-logo-text">每日主题大赛<small>THEME ARENA</small></span>
+      </a>
+      <nav class="dtc-nav" id="dtc-nav" aria-label="主导航">
+        <a href="#dtc-entry">参赛入口</a>
+        <a href="#dtc-focus">今日焦点</a>
+        <a href="#dtc-videos">热门作品</a>
+        <a href="#dtc-authors">创作者</a>
+        <a href="#dtc-deep">主题解析</a>
+        <a href="#dtc-faq">帮助中心</a>
+      </nav>
+      <div class="dtc-head-tools">
+        <div class="dtc-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+          <input type="search" id="dtc-search-input" placeholder="搜索赛事 / 主题 / 创作者" aria-label="搜索赛事、主题或创作者">
+        </div>
+        <button class="dtc-btn dtc-btn-main dtc-btn-ghost" type="button" id="dtc-share-btn" style="background:none;box-shadow:none;color:#cfe6ff;border-color:var(--dtc-line-strong)">分享本页</button>
+        <a class="dtc-btn dtc-btn-main" href="#dtc-entry">立即报名</a>
+        <button class="dtc-menu-btn" type="button" id="dtc-menu-btn" aria-label="展开导航菜单" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="dtc-top">
+
+  <!-- ===== 首屏 ===== -->
+  <section class="dtc-hero" id="dtc-hero">
+    <div class="dtc-wrap dtc-hero-grid">
+      <div class="dtc-hero-copy">
+        <span class="dtc-hero-badge"><i></i>官方赛事门户 · 每日主题赛道持续运营中</span>
+        <h1>每日主题大赛入口导航</h1>
+        <p class="dtc-hero-lead">一个主题，一天一赛。聚合全部官方赛道的报名入口、参赛攻略、作品展映与评审动态，让每一次上传都找到它的舞台。</p>
+        <p class="dtc-hero-intro">作为深耕短视频赛事领域的<strong>官方平台</strong>，每日主题大赛入口导航官方网站致力于为企业与创作者搭建高品质内容生态，以真实、专业、持续运营的赛事机制，把灵感变成被看见的作品。</p>
+        <div class="dtc-hero-actions">
+          <a class="dtc-btn dtc-btn-main" href="#dtc-entry">进入参赛入口</a>
+          <a class="dtc-btn dtc-btn-ghost" href="#dtc-videos">观看今日展映</a>
+          <button class="dtc-btn dtc-btn-ghost" type="button" id="dtc-submit-btn">投稿 / 提交作品</button>
+        </div>
+        <div class="dtc-hero-stats">
+          <div class="dtc-stat"><b data-dtc-count="186">186</b><span>进行中的主题赛道</span></div>
+          <div class="dtc-stat"><b data-dtc-count="42">42</b><span>万条原创参赛作品</span></div>
+          <div class="dtc-stat"><b data-dtc-count="9">9</b><span>年赛事持续运营</span></div>
+        </div>
+      </div>
+      <div class="dtc-hero-visual">
+        <figure class="dtc-hero-fig">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 550'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230c1b2e'/%3E%3Cstop offset='1' stop-color='%23172b48'/%3E%3C/linearGradient%3E%3ClinearGradient id='beam' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2338bdf8' stop-opacity='0.9'/%3E%3Cstop offset='1' stop-color='%23a3e635' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='550' fill='url(%23bg)'/%3E%3Cg opacity='0.5'%3E%3Cpath d='M0 420 L800 320' stroke='%2338bdf8' stroke-opacity='0.25' stroke-width='1'/%3E%3Cpath d='M0 470 L800 370' stroke='%2338bdf8' stroke-opacity='0.16' stroke-width='1'/%3E%3Cpath d='M0 370 L800 270' stroke='%2338bdf8' stroke-opacity='0.32' stroke-width='1'/%3E%3C/g%3E%3Ccircle cx='600' cy='150' r='120' fill='%2338bdf8' fill-opacity='0.12'/%3E%3Ccircle cx='600' cy='150' r='72' fill='%2338bdf8' fill-opacity='0.16'/%3E%3Crect x='70' y='110' width='380' height='250' rx='16' fill='%230f2036' stroke='%2338bdf8' stroke-opacity='0.55'/%3E%3Crect x='96' y='140' width='190' height='13' rx='6' fill='%23a3e635' fill-opacity='0.75'/%3E%3Crect x='96' y='170' width='300' height='9' rx='4' fill='%23e2f0ff' fill-opacity='0.35'/%3E%3Crect x='96' y='190' width='250' height='9' rx='4' fill='%23e2f0ff' fill-opacity='0.22'/%3E%3Crect x='96' y='222' width='110' height='34' rx='8' fill='%2338bdf8' fill-opacity='0.85'/%3E%3Crect x='96' y='276' width='72' height='52' rx='8' fill='%23f59e0b' fill-opacity='0.55'/%3E%3Crect x='178' y='276' width='72' height='52' rx='8' fill='%2338bdf8' fill-opacity='0.4'/%3E%3Crect x='260' y='276' width='72' height='52' rx='8' fill='%23f472b6' fill-opacity='0.4'/%3E%3Cpath d='M470 300 L730 230 L730 470 L470 400 Z' fill='url(%23beam)' opacity='0.28'/%3E%3Ccircle cx='600' cy='350' r='52' fill='%23040e1a' fill-opacity='0.7' stroke='%23ffffff' stroke-opacity='0.4' stroke-width='2'/%3E%3Cpath d='M588 326 L622 350 L588 374 Z' fill='%23ffffff'/%3E%3C/svg%3E" alt="每日主题大赛官方赛程看板与作品展映主视觉" width="800" height="550">
+        </figure>
+        <div class="dtc-hero-float">
+          <strong>今日赛道 · 城市夜行</strong>
+          <span>剩余 06:32:18 关闭投稿 · 已有 1,208 人报名</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 参赛入口导航 ===== -->
+  <section class="dtc-section" id="dtc-entry">
+    <div class="dtc-wrap">
+      <div class="dtc-sec-head">
+        <span class="dtc-eyebrow">Entry Navigation</span>
+        <h2 class="dtc-h2">每日主题大赛 <em>入口导航</em>，一条路径直达赛道</h2>
+        <p class="dtc-sec-sub">所有官方发布的主题赛道、比赛报名、作品上传与投票通道集中在此。按用途分流，减少跳转，让创作者把时间留给创作本身。</p>
+      </div>
+      <div class="dtc-entry-grid">
+        <a class="dtc-entry" href="#dtc-videos">
+          <span class="dtc-entry-ico">今</span>
+          <h3>今日赛道报名入口</h3>
+          <p>每日 09:00 更新主题，限时 24 小时。查看规则、命题方向与评审偏好后再上传作品。</p>
+          <span class="dtc-entry-go">进入今日赛道 →</span>
+        </a>
+        <a class="dtc-entry" href="#dtc-videos">
+          <span class="dtc-entry-ico">赛</span>
+          <h3>比赛作品上传通道</h3>
+          <p>支持 30 秒至 10 分钟成片，自动校验分辨率、码率与字幕合规，上传后即刻进入初审队列。</p>
+          <span class="dtc-entry-go">开始上传 →</span>
+        </a>
+        <a class="dtc-entry" href="#dtc-videos">
+          <span class="dtc-entry-ico">投</span>
+          <h3>投票与打榜中心</h3>
+          <p>社区投票、专业评审、完播率三维合成热度榜，每日 22:00 结算当日赛道排名。</p>
+          <span class="dtc-entry-go">参与投票 →</span>
+        </a>
+        <a class="dtc-entry" href="#dtc-deep">
+          <span class="dtc-entry-ico">攻</span>
+          <h3>参赛攻略与命题拆解</h3>
+          <p>拆解历届获奖作品的选题、结构与镜头语言，附可下载的分镜模板与脚本框架。</p>
+          <span class="dtc-entry-go">阅读攻略 →</span>
+        </a>
+        <a class="dtc-entry" href="#dtc-authors">
+          <span class="dtc-entry-ico">人</span>
+          <h3>创作者入驻与企业合作</h3>
+          <p>入驻后可申请官方流量扶持、企业命题合作与作品正版授权分发，享受持续运营的支持。</p>
+          <span class="dtc-entry-go">申请入驻 →</span>
+        </a>
+        <a class="dtc-entry" href="#dtc-faq">
+          <span class="dtc-entry-ico">助</span>
+          <h3>规则答疑与申诉通道</h3>
+          <p>版权、时长、敏感表述、重复投稿等高频问题集中解答，评审判定异议可在线提交材料。</p>
+          <span class="dtc-entry-go">前往帮助中心 →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 今日焦点 ===== -->
+  <section class="dtc-section" id="dtc-focus">
+    <div class="dtc-wrap">
+      <div class="dtc-sec-head">
+        <span class="dtc-eyebrow">Today Focus</span>
+        <h2 class="dtc-h2">今日焦点：一条赛道，三种拍法</h2>
+        <p class="dtc-sec-sub">编辑团队从今日新增作品中挑出最具代表性的三条，附上评审给出的具体修改建议，供后来者参考。</p>
+      </div>
+      <div class="dtc-focus-grid">
+        <article class="dtc-focus-main">
+          <figure>
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 506'%3E%3Cdefs%3E%3ClinearGradient id='night' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23071122'/%3E%3Cstop offset='1' stop-color='%231d2a44'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='506' fill='url(%23night)'/%3E%3Cg fill='%23f59e0b' opacity='0.85'%3E%3Ccircle cx='120' cy='120' r='5'/%3E%3Ccircle cx='250' cy='86' r='3'/%3E%3Ccircle cx='420' cy='140' r='4'/%3E%3Ccircle cx='700' cy='92' r='3.5'/%3E%3Ccircle cx='810' cy='150' r='4.5'/%3E%3C/g%3E%3Cg fill='%23142334' stroke='%2338bdf8' stroke-opacity='0.3'%3E%3Crect x='60' y='250' width='90' height='200'/%3E%3Crect x='170' y='200' width='110' height='250'/%3E%3Crect x='300' y='280' width='80' height='170'/%3E%3Crect x='400' y='170' width='130' height='280'/%3E%3Crect x='550' y='240' width='95' height='210'/%3E%3Crect x='665' y='190' width='120' height='260'/%3E%3Crect x='805' y='270' width='70' height='180'/%3E%3C/g%3E%3Cg fill='%2338bdf8' opacity='0.55'%3E%3Crect x='188' y='228' width='18' height='12'/%3E%3Crect x='220' y='228' width='18' height='12'/%3E%3Crect x='188' y='258' width='18' height='12'/%3E%3Crect x='420' y='200' width='22' height='14'/%3E%3Crect x='460' y='200' width='22' height='14'/%3E%3Crect x='420' y='236' width='22' height='14'/%3E%3Crect x='690' y='220' width='20' height='13'/%3E%3Crect x='728' y='220' width='20' height='13'/%3E%3C/g%3E%3Crect x='0' y='445' width='900' height='61' fill='%23050d18'/%3E%3Cpath d='M0 445 L900 445' stroke='%2338bdf8' stroke-opacity='0.5'/%3E%3Cg stroke='%23f59e0b' stroke-width='2' stroke-opacity='0.7'%3E%3Cpath d='M360 445 L340 470'/%3E%3Cpath d='M470 445 L495 470'/%3E%3C/g%3E%3C/svg%3E" alt="城市夜行主题赛道获奖作品中的夜景街灯与建筑构图" width="900" height="506">
+            <span class="dtc-focus-play" aria-hidden="true"></span>
+          </figure>
+          <div class="dtc-focus-body">
+            <div class="dtc-video-tags">
+              <span class="dtc-tag">今日赛道</span><span class="dtc-tag dtc-tag-amber">城市夜行</span><span class="dtc-tag-lime dtc-tag">评审推荐</span>
+            </div>
+            <h3 class="dtc-h3">《凌晨四点的便利店，是城市最后一盏灯》</h3>
+            <p>用固定机位记录一家 24 小时便利店的三个小时，几乎无对白，靠收银提示音与门铃构建节奏。评审建议：结尾三十秒可以再收一点，让观众自己完成情绪。</p>
+            <div class="dtc-meta">
+              <span><b>作者</b> 夜行记录员</span><span><b>时长</b> 04:12</span><span><b>播放</b> 18.6 万</span><span><b>点赞</b> 9,240</span>
+            </div>
+          </div>
+        </article>
+        <div class="dtc-focus-side">
+          <article class="dtc-side-item">
+            <span class="dtc-tag">今日新增</span>
+            <h3 class="dtc-h3">《地铁末班车的 11 张脸》</h3>
+            <p>群像式剪辑，11 个陌生人的 3 秒特写拼成一条完整时间线，节奏干净。</p>
+            <div class="dtc-meta"><span>作者 林间一帧</span><span>播放 7.2 万</span></div>
+          </article>
+          <article class="dtc-side-item">
+            <span class="dtc-tag dtc-tag-pink">创意突出</span>
+            <h3 class="dtc-h3">《我把城市倒过来放了一夜》</h3>
+            <p>全片倒置构图，把招牌与倒影重叠，视觉记忆点极强，但叙事线略散。</p>
+            <div class="dtc-meta"><span>作者 逆向镜头</span><span>播放 5.4 万</span></div>
+          </article>
+          <article class="dtc-side-item">
+            <span class="dtc-tag dtc-tag-amber">新人首投</span>
+            <h3 class="dtc-h3">《外卖箱里的城市地图》</h3>
+            <p>骑手第一视角拍摄，素材真实，建议下一版补一条清晰的地理线索。</p>
+            <div class="dtc-meta"><span>作者 阿舟在路上</span><span>播放 3.9 万</span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 热门作品流 ===== -->
+  <section class="dtc-section" id="dtc-videos">
+    <div class="dtc-wrap">
+      <div class="dtc-sec-head">
+        <span class="dtc-eyebrow">Trending Works</span>
+        <h2 class="dtc-h2">热门参赛作品：<em>今日展映</em>与实时数据</h2>
+        <p class="dtc-sec-sub">按社区投票、专业评审分与完播率综合排序，每日 22:00 结算。所有作品均为正版授权展映，支持高清播放。</p>
+      </div>
+      <ol class="dtc-videos">
+        <li class="dtc-video-item" data-dtc-search="城市夜行 便利店 纪录">
+          <div class="dtc-video-rank">01</div>
+          <div class="dtc-video-body">
+            <h3>《凌晨四点的便利店，是城市最后一盏灯》</h3>
+            <p>一家 24 小时便利店的三个小时，靠环境声建立节奏，几乎没有旁白。适合作为「城市夜行」赛道的叙事范本。</p>
+            <div class="dtc-video-tags"><span class="dtc-tag">纪录</span><span class="dtc-tag dtc-tag-amber">城市夜行</span><span class="dtc-tag dtc-tag-lime">评审推荐</span></div>
+            <div class="dtc-video-acts">
+              <button class="dtc-btn dtc-btn-tiny dtc-like-btn" type="button" data-count="9240">点赞 9,240</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-fav-btn" type="button" aria-pressed="false">收藏</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-author-btn" type="button" data-author="夜行记录员｜擅长城市纪实与夜间摄影，作品 46 部，粉丝 21.8 万。长期用固定机位观察城市里被忽略的角落。">作者</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-share-one" type="button">复制链接</button>
+            </div>
+          </div>
+          <div class="dtc-video-metrics"><span>播放 18.6 万</span><span>完播 71%</span><span>时长 04:12</span></div>
+        </li>
+        <li class="dtc-video-item" data-dtc-search="新人 手机 拍摄">
+          <div class="dtc-video-rank">02</div>
+          <div class="dtc-video-body">
+            <h3>《一部手机拍完的三十秒早餐》</h3>
+            <p>新人赛道热门，全程自然光，7 个镜头讲清一套早餐流程，镜头衔接干净，被大量新手作为入门参考。</p>
+            <div class="dtc-video-tags"><span class="dtc-tag">教程</span><span class="dtc-tag dtc-tag-lime">新人赛道</span><span class="dtc-tag">自然光</span></div>
+            <div class="dtc-video-acts">
+              <button class="dtc-btn dtc-btn-tiny dtc-like-btn" type="button" data-count="6120">点赞 6,120</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-fav-btn" type="button" aria-pressed="false">收藏</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-author-btn" type="button" data-author="周末厨房手记｜美食与日常记录创作者，作品 128 部，粉丝 14.2 万。主张用最少的设备讲清一顿饭。">作者</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-share-one" type="button">复制链接</button>
+            </div>
+          </div>
+          <div class="dtc-video-metrics"><span>播放 12.3 万</span><span>完播 78%</span><span>时长 00:31</span></div>
+        </li>
+        <li class="dtc-video-item" data-dtc-search="访谈 手作 幕后">
+          <div class="dtc-video-rank">03</div>
+          <div class="dtc-video-body">
+            <h3>《他做了 17 年木工，只发过 9 条视频》</h3>
+            <p>人物访谈与创作幕后结合，用一条长镜头记录榫卯拼合过程，访谈部分节选在评论区引发大量讨论。</p>
+            <div class="dtc-video-tags"><span class="dtc-tag dtc-tag-pink">人物访谈</span><span class="dtc-tag">手作</span><span class="dtc-tag">幕后</span></div>
+            <div class="dtc-video-acts">
+              <button class="dtc-btn dtc-btn-tiny dtc-like-btn" type="button" data-count="10480">点赞 10,480</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-fav-btn" type="button" aria-pressed="false">收藏</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-author-btn" type="button" data-author="木与榫工作室｜手作类品牌官方账号，作品 9 部，粉丝 8.6 万。专注于榫卯结构影像化，坚持正版原创素材。">作者</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-share-one" type="button">复制链接</button>
+            </div>
+          </div>
+          <div class="dtc-video-metrics"><span>播放 22.1 万</span><span>完播 66%</span><span>时长 08:44</span></div>
+        </li>
+        <li class="dtc-video-item" data-dtc-search="户外 徒步 城市探索">
+          <div class="dtc-video-rank">04</div>
+          <div class="dtc-video-body">
+            <h3>《从城市边缘走到城市中心，用了九个小时》</h3>
+            <p>户外与城市探索题材，一镜到底式路线记录，剪辑上做了一次时间压缩实验，视觉节奏明快。</p>
+            <div class="dtc-video-tags"><span class="dtc-tag">户外</span><span class="dtc-tag dtc-tag-amber">城市探索</span><span class="dtc-tag">时间压缩</span></div>
+            <div class="dtc-video-acts">
+              <button class="dtc-btn dtc-btn-tiny dtc-like-btn" type="button" data-count="4380">点赞 4,380</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-fav-btn" type="button" aria-pressed="false">收藏</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-author-btn" type="button" data-author="走完再说｜户外与城市探索创作者，作品 63 部，粉丝 19.5 万。擅长用长距离步行完成影像叙事。">作者</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-share-one" type="button">复制链接</button>
+            </div>
+          </div>
+          <div class="dtc-video-metrics"><span>播放 9.8 万</span><span>完播 54%</span><span>时长 06:20</span></div>
+        </li>
+        <li class="dtc-video-item" data-dtc-search="科技 测评 实操">
+          <div class="dtc-video-rank">05</div>
+          <div class="dtc-video-body">
+            <h3>《三台同价位相机，同一段夜路》</h3>
+            <p>科技测评类深度对比，测试方法交代清楚，参数叠加强度克制，被多位评审列入本周必看清单。</p>
+            <div class="dtc-video-tags"><span class="dtc-tag">深度测评</span><span class="dtc-tag dtc-tag-lime">科技前沿</span><span class="dtc-tag">对照实验</span></div>
+            <div class="dtc-video-acts">
+              <button class="dtc-btn dtc-btn-tiny dtc-like-btn" type="button" data-count="5760">点赞 5,760</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-fav-btn" type="button" aria-pressed="false">收藏</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-author-btn" type="button" data-author="参数以外｜科技影像测评创作者，作品 84 部，粉丝 33.1 万。坚持实拍对照，拒绝只念参数。">作者</button>
+              <button class="dtc-btn dtc-btn-tiny dtc-share-one" type="button">复制链接</button>
+            </div>
+          </div>
+          <div class="dtc-video-metrics"><span>播放 15.4 万</span><span>完播 62%</span><span>时长 10:02</span></div>
+        </li>
+      </ol>
+      <p class="dtc-search-hint" id="dtc-search-hint" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ===== 专题企划 ===== -->
+  <section class="dtc-section" id="dtc-topics">
+    <div class="dtc-wrap">
+      <div class="dtc-sec-head">
+        <span class="dtc-eyebrow">Programs</span>
+        <h2 class="dtc-h2">长期专题与企划：不止一天的赛道</h2>
+        <p class="dtc-sec-sub">除了每日主题，平台持续运营四条长期专题企划，为创作者提供稳定的表达场域与官方的精品内容推荐位。</p>
+      </div>
+      <div class="dtc-topics">
+        <article class="dtc-topic">
+          <span class="dtc-topic-status"><i></i>更新中 · 第 6 期</span>
+          <h3>「一天一城」城市影像企划</h3>
+          <p>以城市为单位征集 3 分钟短片，关注在地文化与普通人的日常。每期由本地创作者联合评审。</p>
+          <ol>
+            <li><em>01</em>成都：茶馆里的六点钟</li>
+            <li><em>02</em>泉州：一条巷子的三种手艺</li>
+            <li><em>03</em>哈尔滨：零下二十度的早餐摊</li>
+          </ol>
+        </article>
+        <article class="dtc-topic">
+          <span class="dtc-topic-status"><i></i>更新中 · 第 3 期</span>
+          <h3>「三十秒讲清一件事」挑战</h3>
+          <p>限时 30 秒，要求有明确信息增量。适合知识科普、实用技巧与教程干货类创作者。</p>
+          <ol>
+            <li><em>01</em>如何用一条线判断画面是否水平</li>
+            <li><em>02</em>三个动作让手持画面稳住</li>
+            <li><em>03</em>为什么你的转场总是很突兀</li>
+          </ol>
+        </article>
+        <article class="dtc-topic">
+          <span class="dtc-topic-status"><i></i>长期开放</span>
+          <h3>新人扶持影像计划</h3>
+          <p>面向首次投稿的创作者，提供脚本诊断、剪辑反馈与官方流量池推荐，每期 12 个名额。</p>
+          <ol>
+            <li><em>01</em>首投作品脚本一对一诊断</li>
+            <li><em>02</em>剪辑节奏与成片结构反馈</li>
+            <li><em>03</em>入选作品进入官方推荐位</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 创作者矩阵 ===== -->
+  <section class="dtc-section" id="dtc-authors">
+    <div class="dtc-wrap">
+      <div class="dtc-sec-head">
+        <span class="dtc-eyebrow">Creators</span>
+        <h2 class="dtc-h2">平台创作者：<em>持续参赛</em>的四种方法</h2>
+        <p class="dtc-sec-sub">他们是赛道上的常客，也是社区里最愿意分享的人。点击「查看简介」可了解其创作方法与擅长的命题方向。</p>
+      </div>
+      <div class="dtc-authors">
+        <article class="dtc-author">
+          <div class="dtc-author-top">
+            <div class="dtc-avatar" aria-hidden="true">夜</div>
+            <div><h3>夜行记录员</h3><span>城市纪实 · 夜间摄影</span></div>
+          </div>
+          <p>擅长固定机位与长镜头观察，作品 46 部，参赛 31 次。认为夜间的城市更像一个正在呼吸的现场，拍摄时尽量不打扰被摄者，只用环境声讲故事。多次获得「城市夜行」赛道评审推荐。</p>
+          <div class="dtc-author-foot">
+            <span class="dtc-meta"><span><b>作品</b> 46</span><span><b>粉丝</b> 21.8 万</span></span>
+            <button class="dtc-btn dtc-btn-tiny dtc-author-btn" type="button" data-author="夜行记录员｜城市纪实创作者。方法：固定机位、环境声优先、不打扰被摄者。代表作《凌晨四点的便利店》获赛道评审推荐。">查看简介</button>
+          </div>
+        </article>
+        <article class="dtc-author">
+          <div class="dtc-author-top">
+            <div class="dtc-avatar" aria-hidden="true">厨</div>
+            <div><h3>周末厨房手记</h3><span>美食烹饪 · 日常记录</span></div>
+          </div>
+          <p>用一部手机拍完整个流程的实践者，作品 128 部，参赛 44 次。主张先想清楚「观众要记住哪一步」，再决定镜头数量，靠自然光与现场声保留食物的真实质感，新人赛道常年热门。</p>
+          <div class="dtc-author-foot">
+            <span class="dtc-meta"><span><b>作品</b> 128</span><span><b>粉丝</b> 14.2 万</span></span>
+            <button class="dtc-btn dtc-btn-tiny dtc-author-btn" type="button" data-author="周末厨房手记｜美食与日常记录创作者。方法：先定记忆点再定镜头、全程自然光、尽量保留现场声。">查看简介</button>
+          </div>
+        </article>
+        <article class="dtc-author">
+          <div class="dtc-author-top">
+            <div class="dtc-avatar" aria-hidden="true">木</div>
+            <div><h3>木与榫工作室</h3><span>手作 · 人物访谈</span></div>
+          </div>
+          <p>品牌官方账号，作品 9 部，粉丝 8.6 万，更新极慢但每条都被反复观看。以长镜头记录榫卯拼合过程，把工艺细节当作叙事本身，被平台列为「匠心内容」典型案例，坚持正版原创。</p>
+          <div class="dtc-author-foot">
+            <span class="dtc-meta"><span><b>作品</b> 9</span><span><b>粉丝</b> 8.6 万</span></span>
+            <button class="dtc-btn dtc-btn-tiny dtc-author-btn" type="button" data-author="木与榫工作室｜手作类品牌官方账号。方法：长镜头记录工艺、以细节代替解说、年产不超过 4 条。">查看简介</button>
+          </div>
+        </article>
+        <article class="dtc-author">
+          <div class="dtc-author-top">
+            <div class="dtc-avatar" aria-hidden="true">参</div>
+            <div><h3>参数以外</h3><span>科技测评 · 深度对比</span></div>
+          </div>
+          <p>专注于影像设备的实测对比，作品 84 部，参赛 27 次。坚持同一场景、同一段路、同一组参数做对照，把变量交代清楚，拒绝只念规格表，是科技赛道口碑最稳的创作者之一。</p>
+          <div class="dtc-author-foot">
+            <span class="dtc-meta"><span><b>作品</b> 84</span><span><b>粉丝</b> 33.1 万</span></span>
+            <button class="dtc-btn dtc-btn-tiny dtc-author-btn" type="button" data-author="参数以外｜科技影像测评创作者。方法：同场景对照、公开全部变量、结论先行。评测素材均为自购设备。">查看简介</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 关键词解析长文 ===== -->
+  <section class="dtc-section" id="dtc-deep">
+    <div class="dtc-wrap">
+      <div class="dtc-sec-head">
+        <span class="dtc-eyebrow">Deep Read</span>
+        <h2 class="dtc-h2">关键词解析：<em>每日主题大赛入口导航</em>到底是什么</h2>
+        <p class="dtc-sec-sub">这不是一个单纯的报名页面，而是一套围绕「主题—命题—作品—评价」运转的内容机制。以下从四个层面拆解它的构成与价值。</p>
+      </div>
+      <div class="dtc-deep">
+        <div class="dtc-deep-body">
+          <h3>一、入口导航：把分散的赛事信息收束成一条路径</h3>
+          <p>「每日主题大赛入口导航」这个关键词里，最容易被忽略的是「入口导航」四个字。对参赛者来说，真正消耗耐心的往往不是拍摄，而是找规则、找上传口、找评审标准、找投票页面。信息分散在多个位置时，很多人拍到一半就放弃了。平台把每日赛道报名、作品上传、投票打榜、攻略阅读、创作者入驻、规则答疑六类入口做统一收束，形成一套稳定的路径：先确认今日命题，再看评审偏好，然后上传、等初审、参与投票、查看结算。每一个环节都有明确的下一步，这就是「导航」的实际含义。</p>
+          <p>为了让路径真正可用，官方在每天 09:00 更新主题时会同步发布三份材料：命题说明、评审维度表、往期同类作品的拆解。命题说明讲清楚「这一题希望看到什么、不希望看到什么」；评审维度表把投票、专业分、完播率的权重公开；拆解则用真实作品说明边界。三者合在一起，把「入口」从链接升级为决策辅助。对于首次参赛的创作者，这意味着不需要靠猜测去赌评审口味，而是可以依据公开标准反复打磨。</p>
+          <h3>二、每日主题：高频命题如何保证品质与公平</h3>
+          <p>「每日」是这个平台最鲜明的特征，也是最难维持的部分。高频命题容易滑向选题重复与作品同质化，平台的做法是用三条规则做约束。第一，同一大类主题在七天内不重复，且每天的主题必须包含一个具体的场景限定词，例如「城市夜行」「三十秒讲清一件事」，让命题天然带有可执行性。第二，每日赛道独立结算，历史成绩不叠加权重，避免老创作者长期占位。第三，新人扶持计划对首投作品给出独立的推荐位，让第一次上传的人也能进入曝光池。</p>
+          <p>公平性还体现在评审结构上。每一条赛道由社区投票、专业评审分与完播率三项合成热度，任何一项都无法单独决定排名。社区投票反映共鸣程度，专业评审分反映完成度，完播率反映真实观看体验。三项公开、可查、可复核，出现争议时参赛者可以提交材料申诉。平台把「口碑」当成可量化的指标来经营，而不是一句宣传语。这也是它能够在九年持续运营中积累起一批稳定创作者的原因。</p>
+          <h3>三、内容生态：创作者、企业与社区如何各自获益</h3>
+          <p>一个赛事平台如果只有参赛者，生态是单薄的。每日主题大赛的另一半价值在于企业命题合作：品牌把真实的传播需求转化为主题赛道，创作者用作品回应，平台负责规则、评审与正版授权分发。对企业而言，这是一次可预期的高品质内容获取；对创作者而言，这是一次带预算的实战练习；对社区而言，这些作品构成了可长期观看的精品内容库。三方各取所需，生态才转得起来。</p>
+          <p>在内容方向上，平台刻意保持多元：日常记录、经验分享、教程干货、深度测评、人物访谈、城市探索、在地文化、手作、科技前沿都在命题池中轮转。这种多元不是随意堆叠，而是为了覆盖不同类型的创作者。擅长观察的人可以做纪实，擅长表达的人可以做访谈，擅长拆解的人可以做教程。包容不同表达方式，才有可能让社区保持长期的活力，而不是被单一爆款逻辑主导。</p>
+          <h3>四、如何用好这套导航：给参赛者的四条实操建议</h3>
+          <p>第一条，先读命题再开机。绝大多数落选作品的问题不在技术，而在答非所问。第二条，控制时长。新人赛道的 30 秒命题不是限制，而是训练：强迫自己只保留最有信息量的部分。第三条，保留现场声。环境声往往比配乐更能建立真实感，也更容易在评审中获得完成度加分。第四条，善用攻略区。历届获奖作品的结构拆解与分镜模板都可以直接下载，这是平台最被低估的资源。</p>
+          <p>最后需要说明的是，导航的价值在于让人少走弯路，但不能代替创作本身。平台能提供的是清晰的规则、公开的标准、稳定的流量与持续的运营，真正决定作品能否被记住的，仍然是创作者对主题的理解和对细节的耐心。这也是官方一直强调「真实、专业、值得信赖」的原因：赛事会结束，作品会留下。</p>
+        </div>
+        <aside class="dtc-deep-aside">
+          <div class="dtc-aside-card">
+            <h4>今日赛道速览</h4>
+            <ul>
+              <li><b>主题</b>城市夜行</li>
+              <li><b>时长</b>30 秒 — 8 分钟</li>
+              <li><b>截稿</b>今日 23:59</li>
+              <li><b>报名</b>1,208 人</li>
+            </ul>
+          </div>
+          <div class="dtc-aside-card">
+            <h4>评审维度权重</h4>
+            <ul>
+              <li><b>40%</b>专业评审分</li>
+              <li><b>35%</b>社区投票</li>
+              <li><b>25%</b>完播率</li>
+            </ul>
+          </div>
+          <div class="dtc-aside-card">
+            <h4>官方口径</h4>
+            <ul>
+              <li><b>·</b>所有展映作品均为正版授权</li>
+              <li><b>·</b>评审结果公开可复核</li>
+              <li><b>·</b>新人首投独立推荐位</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 榜单 ===== -->
+  <section class="dtc-section" id="dtc-board">
+    <div class="dtc-wrap">
+      <div class="dtc-sec-head">
+        <span class="dtc-eyebrow">Leaderboard</span>
+        <h2 class="dtc-h2">数据榜单：热度、新人、口碑三张表</h2>
+        <p class="dtc-sec-sub">每日 22:00 结算，历史榜单可在榜单页回溯。数据口径公开，完播率与投票数均可查。</p>
+      </div>
+      <div class="dtc-board">
+        <div class="dtc-board-col">
+          <h3>今日热度榜</h3>
+          <ol>
+            <li><em>1</em><span>凌晨四点的便利店</span><b>18.6 万</b></li>
+            <li><em>2</em><span>他做了 17 年木工</span><b>22.1 万</b></li>
+            <li><em>3</em><span>三台同价位相机</span><b>15.4 万</b></li>
+            <li><em>4</em><span>一部手机拍完早餐</span><b>12.3 万</b></li>
+            <li><em>5</em><span>从城市边缘到中心</span><b>9.8 万</b></li>
+          </ol>
+        </div>
+        <div class="dtc-board-col">
+          <h3>新人榜</h3>
+          <ol>
+            <li><em>1</em><span>阿舟在路上</span><b>3.9 万</b></li>
+            <li><em>2</em><span>半格胶卷</span><b>3.1 万</b></li>
+            <li><em>3</em><span>巷口收音员</span><b>2.7 万</b></li>
+            <li><em>4</em><span>清晨五点半</span><b>2.2 万</b></li>
+            <li><em>5</em><span>木屑与光</span><b>1.9 万</b></li>
+          </ol>
+        </div>
+        <div class="dtc-board-col">
+          <h3>口碑榜</h3>
+          <ol>
+            <li><em>1</em><span>木与榫工作室</span><b>9.6 分</b></li>
+            <li><em>2</em><span>夜行记录员</span><b>9.4 分</b></li>
+            <li><em>3</em><span>参数以外</span><b>9.2 分</b></li>
+            <li><em>4</em><span>周末厨房手记</span><b>9.1 分</b></li>
+            <li><em>5</em><span>走完再说</span><b>8.9 分</b></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 用户评价 ===== -->
+  <section class="dtc-section" id="dtc-comments">
+    <div class="dtc-wrap">
+      <div class="dtc-sec-head">
+        <span class="dtc-eyebrow">Community Voice</span>
+        <h2 class="dtc-h2">来自社区的<em>真实评价</em></h2>
+        <p class="dtc-sec-sub">评选自本期参赛者与观众的公开留言，长度与关注点各不相同，保留原始语气。</p>
+      </div>
+      <div class="dtc-comments">
+        <article class="dtc-comment">
+          <div class="dtc-comment-top"><span class="dtc-comment-av">夜</span><b>夜行记录员</b><span>参赛者 · 3 小时前</span></div>
+          <p>第三次参加城市夜行，这次终于知道评审在看什么了。维度表公开之后，剪辑时会更在意节奏而不是堆素材，进步很明显。</p>
+        </article>
+        <article class="dtc-comment">
+          <div class="dtc-comment-top"><span class="dtc-comment-av">厨</span><b>周末厨房手记</b><span>创作者 · 5 小时前</span></div>
+          <p>新人扶持的脚本诊断是真的有人一句句看，不是模板回复。给我的建议是「删掉前半段三十秒」，照做之后完播率直接上去了。</p>
+        </article>
+        <article class="dtc-comment">
+          <div class="dtc-comment-top"><span class="dtc-comment-av">观</span><b>观众小满</b><span>普通用户 · 8 小时前</span></div>
+          <p class="dtc-quote">「每天中午吃饭的时候刷今日展映，已经成了习惯。比起算法推的短视频，这里的作品更完整，也更愿意看完。」</p>
+          <p></p>
+        </article>
+        <article class="dtc-comment">
+          <div class="dtc-comment-top"><span class="dtc-comment-av">参</span><b>参数以外</b><span>创作者 · 昨天</span></div>
+          <p>唯一想吐槽的是每日截稿时间有点紧，希望周末赛道能延长到 48 小时。其他都好，规则透明这点很难得。</p>
+        </article>
+        <article class="dtc-comment">
+          <div class="dtc-comment-top"><span class="dtc-comment-av">新</span><b>半格胶卷</b><span>首次参赛 · 昨天</span></div>
+          <p>第一次投稿，上传时格式校验提示很具体，直接告诉我码率超了多少。不用来回试，一次就传成功了，体验不错。</p>
+        </article>
+        <article class="dtc-comment">
+          <div class="dtc-comment-top"><span class="dtc-comment-av">企</span><b>某品牌内容负责人</b><span>合作方 · 2 天前</span></div>
+          <p>我们通过企业命题合作收到了 60 多条可用作品，质量比预期好，授权流程也清晰。会继续做下一期。</p>
+        </article>
+        <article class="dtc-comment">
+          <div class="dtc-comment-top"><span class="dtc-comment-av">老</span><b>老周不老</b><span>观众 · 2 天前</span></div>
+          <p class="dtc-quote">「看了那条木工的访谈，又去把他九条作品全看了一遍。这种内容在别处刷不到，希望平台多留一些位子给慢作品。」</p>
+        </article>
+        <article class="dtc-comment">
+          <div class="dtc-comment-top"><span class="dtc-comment-av">巷</span><b>巷口收音员</b><span>新人 · 3 天前</span></div>
+          <p>喜欢这里的投稿入口做得很直白，没有藏在三层菜单里。对新人友好，是我决定留下来的主要原因。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 企业动态 / 合作 / FAQ ===== -->
+  <section class="dtc-section" id="dtc-support">
+    <div class="dtc-wrap">
+      <div class="dtc-sec-head">
+        <span class="dtc-eyebrow">Updates &amp; Support</span>
+        <h2 class="dtc-h2">企业动态、合作伙伴与常见问题</h2>
+        <p class="dtc-sec-sub">官方发布信息集中在此，包含赛制调整、合作动态与参赛者最常问到的规则问题。</p>
+      </div>
+      <div class="dtc-three">
+        <div class="dtc-panel" style="padding:22px">
+          <h3 class="dtc-h3" style="margin-bottom:16px">企业动态 · 官方发布</h3>
+          <div class="dtc-news">
+            <div class="dtc-news-item">
+              <span class="dtc-news-date">11月<br>22日</span>
+              <div><h4>评审维度权重调整公示</h4><p>自 12 月 1 日起，专业评审分权重由 35% 上调至 40%，完播率下调至 25%。</p></div>
+            </div>
+            <div class="dtc-news-item">
+              <span class="dtc-news-date">11月<br>19日</span>
+              <div><h4>新人扶持计划第七期名单公布</h4><p>12 位创作者入选，将获得官方推荐位与一对一脚本诊断。</p></div>
+            </div>
+            <div class="dtc-news-item">
+              <span class="dtc-news-date">11月<br>15日</span>
+              <div><h4>与三家影像设备品牌达成年度合作</h4><p>共同设立设备实测赛道，评测素材要求全部自购、变量公开。</p></div>
+            </div>
+            <div class="dtc-news-item">
+              <span class="dtc-news-date">11月<br>08日</span>
+              <div><h4>作品上传通道升级</h4><p>支持断点续传与自动字幕合规校验，上传失败率下降明显。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dtc-panel" style="padding:22px">
+          <h3 class="dtc-h3" style="margin-bottom:16px">合作品牌与伙伴</h3>
+          <div class="dtc-partners">
+            <div class="dtc-partner"><b>光影器材</b>年度影像合作</div>
+            <div class="dtc-partner"><b>城市文旅</b>在地文化企划</div>
+            <div class="dtc-partner"><b>声场音频</b>现场声支持</div>
+            <div class="dtc-partner"><b>木与榫</b>匠心内容共创</div>
+          </div>
+          <p style="font-size:12.8px;color:var(--dtc-dim);margin-top:16px;line-height:1.7">合作以真实命题为基础，所有涉及作品的商业使用均需单独授权，创作者保留署名权。</p>
+        </div>
+
+        <div class="dtc-panel" style="padding:22px">
+          <h3 class="dtc-h3" style="margin-bottom:16px">FAQ · 参赛常见问题</h3>
+          <div class="dtc-faq">
+            <details>
+              <summary>每日赛道可以重复投稿吗？</summary>
+              <p>同一主题下每人最多提交 2 条作品，且需为不同版本。重复上传相同文件会被系统识别并合并。</p>
+            </details>
+            <details>
+              <summary>作品时长有什么硬性要求？</summary>
+              <p>多数赛道为 30 秒至 8 分钟，具体以当日命题说明为准。超时作品可以通过初审，但会在专业评审分上扣分。</p>
+            </details>
+            <details>
+              <summary>可以使用他人素材吗？</summary>
+              <p>平台只接受正版授权素材。使用第三方音乐、影像需提供授权说明，未授权的作品不予展映。</p>
+            </details>
+            <details>
+              <summary>投票会不会被刷？</summary>
+              <p>投票按账号权重与观看时长计算，异常行为会被剔除。最终排名中投票仅占 35% 权重。</p>
+            </details>
+            <details>
+              <summary>评审结果有异议怎么办？</summary>
+              <p>可在结果公布后 48 小时内通过帮助中心提交申诉材料，评审组会在 5 个工作日内给出书面回复。</p>
+            </details>
+            <details>
+              <summary>企业命题合作怎么申请？</summary>
+              <p>在「创作者入驻与合作」入口提交品牌信息与传播目标，运营团队会在 3 个工作日内联系。</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 投稿 CTA ===== -->
+  <section class="dtc-section" id="dtc-join">
+    <div class="dtc-wrap">
+      <div class="dtc-cta">
+        <div>
+          <h2>明天的主题已经准备好了，你的作品呢？</h2>
+          <p>注册即可获得今日赛道的完整命题包与分镜模板。首次投稿自动进入新人扶持池，享受官方推荐位与一对一反馈。</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="dtc-btn dtc-btn-main" type="button" id="dtc-submit-btn-2">投稿参赛</button>
+          <a class="dtc-btn dtc-btn-ghost" href="#dtc-entry">返回入口导航</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="dtc-footer">
+  <div class="dtc-wrap">
+    <div class="dtc-footer-grid">
+      <div class="dtc-footer-brand">
+        <div class="dtc-logo">
+          <span class="dtc-logo-mark"><span></span></span>
+          <span class="dtc-logo-text">每日主题大赛<small>THEME ARENA</small></span>
+        </div>
+        <p>每日主题大赛入口导航官方网站，深耕短视频赛事领域九年，持续运营每日主题赛道、长期专题企划与企业命题合作，致力于为创作者与企业搭建高品质、正版、可信赖的内容生态。</p>
+      </div>
+      <div class="dtc-footer-col">
+        <h4>参赛相关</h4>
+        <ul>
+          <li><a href="#dtc-entry">今日赛道报名</a></li>
+          <li><a href="#dtc-videos">作品上传通道</a></li>
+          <li><a href="#dtc-board">榜单与结算</a></li>
+          <li><a href="#dtc-deep">参赛攻略</a></li>
+        </ul>
+      </div>
+      <div class="dtc-footer-col">
+        <h4>社区与创作者</h4>
+        <ul>
+          <li><a href="#dtc-authors">创作者名录</a></li>
+          <li><a href="#dtc-topics">长期专题企划</a></li>
+          <li><a href="#dtc-comments">社区评价</a></li>
+          <li><a href="#dtc-support">企业动态</a></li>
+        </ul>
+      </div>
+      <div class="dtc-footer-col">
+        <h4>官方与支持</h4>
+        <ul>
+          <li><a href="#dtc-faq">帮助中心</a></li>
+          <li><a href="#dtc-support">合作与授权</a></li>
+          <li><a href="#dtc-join">投稿入口</a></li>
+          <li><a href="#dtc-top">回到顶部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="dtc-footer-bottom">
+      <span>© 2017–2026 每日主题大赛入口导航 官方网站 · 版权所有 · 持续运营中</span>
+      <span>品牌与内容均为原创，正版授权展映 · 备案信息以官方公告为准</span>
+    </div>
+  </div>
+</footer>
+
+<button class="dtc-top" type="button" id="dtc-top-btn" aria-label="回到顶部">↑</button>
+<div class="dtc-toast" id="dtc-toast" role="status" aria-live="polite"></div>
+
+<div class="dtc-modal" id="dtc-modal" role="dialog" aria-modal="true" aria-labelledby="dtc-modal-title">
+  <div class="dtc-modal-box">
+    <button class="dtc-modal-close" type="button" id="dtc-modal-close" aria-label="关闭弹窗">×</button>
+    <h3 id="dtc-modal-title">提示</h3>
+    <div id="dtc-modal-body"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var toastEl = document.getElementById('dtc-toast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('dtc-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('dtc-show'); }, 2200);
+  }
+
+  /* 移动端导航折叠 */
+  var menuBtn = document.getElementById('dtc-menu-btn');
+  var nav = document.getElementById('dtc-nav');
+  if(menuBtn && nav){
+    menuBtn.addEventListener('click', function(){
+      var open = nav.classList.toggle('dtc-open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('dtc-open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 搜索前端筛选 */
+  var searchInput = document.getElementById('dtc-search-input');
+  var hint = document.getElementById('dtc-search-hint');
+  var videoItems = Array.prototype.slice.call(document.querySelectorAll('.dtc-video-item'));
+  if(searchInput){
+    searchInput.addEventListener('input', function(){
+      var q = searchInput.value.trim().toLowerCase();
+      var shown = 0;
+      videoItems.forEach(function(item){
+        var text = (item.getAttribute('data-dtc-search') || '') + ' ' + item.textContent.toLowerCase();
+        var hit = !q || text.toLowerCase().indexOf(q) > -1;
+        item.classList.toggle('dtc-hidden', !hit);
+        if(hit) shown++;
+      });
+      if(hint){
+        hint.textContent = q ? ('当前匹配 ' + shown + ' 条参展作品，可继续输入关键词精确查找。') : '';
+      }
+    });
+  }
+
+  /* 点赞 */
+  document.querySelectorAll('.dtc-like-btn').forEach(function(btn){
+    var base = parseInt(btn.getAttribute('data-count'), 10) || 0;
+    var liked = false;
+    btn.addEventListener('click', function(){
+      liked = !liked;
+      var n = liked ? base + 1 : base;
+      btn.textContent = '点赞 ' + n.toLocaleString('en-US');
+      btn.classList.toggle('dtc-on', liked);
+      toast(liked ? '已点赞，感谢你的支持' : '已取消点赞');
+    });
+  });
+
+  /* 收藏 */
+  document.querySelectorAll('.dtc-fav-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var on = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', on ? 'false' : 'true');
+      btn.classList.toggle('dtc-on', !on);
+      btn.textContent = on ? '收藏' : '已收藏';
+      toast(on ? '已取消收藏' : '已收藏到我的作品夹');
+    });
+  });
+
+  /* 复制链接 */
+  function copyLink(){
+    var url = window.location.href.split('#')[0];
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){ toast('链接已复制，可粘贴分享'); }, function(){ toast('复制失败，请手动选择地址栏复制'); });
+    }else{
+      var ta = document.createElement('textarea');
+      ta.value = url;
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand('copy'); toast('链接已复制，可粘贴分享'); }catch(e){ toast('复制失败，请手动复制'); }
+      document.body.removeChild(ta);
+    }
+  }
+  document.querySelectorAll('.dtc-share-one').forEach(function(btn){
+    btn.addEventListener('click', copyLink);
+  });
+  var shareBtn = document.getElementById('dtc-share-btn');
+  if(shareBtn){ shareBtn.addEventListener('click', copyLink); }
+
+  /* 弹窗通用 */
+  var modal = document.getElementById('dtc-modal');
+  var modalTitle = document.getElementById('dtc-modal-title');
+  var modalBody = document.getElementById('dtc-modal-body');
+  var modalClose = document.getElementById('dtc-modal-close');
+  function openModal(title, html){
+    if(!modal) return;
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    modal.classList.add('dtc-show');
+  }
+  function closeModal(){ if(modal) modal.classList.remove('dtc-show'); }
+  if(modalClose) modalClose.addEventListener('click', closeModal);
+  if(modal) modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+
+  /* 作者信息弹窗 */
+  document.querySelectorAll('.dtc-author-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var info = btn.getAttribute('data-author') || '暂无更多信息。';
+      openModal('创作者简介', '<p>' + info + '</p><p style="font-size:12.8px;color:#9db1c9">如需联系合作，请在帮助中心提交创作者合作申请。</p>');
+    });
+  });
+
+  /* 投稿弹窗 */
+  function openSubmit(){
+    openModal('投稿参赛',
+      '<p>今日赛道「城市夜行」仍在开放。请准备：<br>1. 30 秒至 8 分钟的成片文件；<br>2. 200 字以内的作品说明；<br>3. 素材授权声明（如使用第三方素材）。</p>' +
+      '<p>提交后 24 小时内完成初审，通过即进入展映与投票池。首次投稿自动纳入新人扶持池。</p>' +
+      '<div class="dtc-modal-actions"><button class="dtc-btn dtc-btn-main" type="button" id="dtc-fake-upload">选择文件并提交</button>' +
+      '<button class="dtc-btn dtc-btn-ghost" type="button" id="dtc-fake-guide">先看参赛攻略</button></div>');
+    var up = document.getElementById('dtc-fake-upload');
+    if(up) up.addEventListener('click', function(){ closeModal(); toast('已进入上传通道，请按提示完成文件校验'); });
+    var gd = document.getElementById('dtc-fake-guide');
+    if(gd) gd.addEventListener('click', function(){ closeModal(); document.getElementById('dtc-deep').scrollIntoView({behavior:'smooth'}); });
+  }
+  var submit1 = document.getElementById('dtc-submit-btn');
+  var submit2 = document.getElementById('dtc-submit-btn-2');
+  if(submit1) submit1.addEventListener('click', openSubmit);
+  if(submit2) submit2.addEventListener('click', openSubmit);
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('dtc-top-btn');
+  window.addEventListener('scroll', function(){
+    if(!topBtn) return;
+    if(window.scrollY > 520){ topBtn.classList.add('dtc-show'); }
+    else{ topBtn.classList.remove('dtc-show'); }
+  }, { passive:true });
+  if(topBtn){
+    topBtn.addEventListener('click', function(){
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  }
+
+  /* 数据数字滚动 */
+  var counted = false;
+  function runCount(){
+    if(counted) return;
+    var items = document.querySelectorAll('[data-dtc-count]');
+    if(!items.length) return;
+    counted = true;
+    items.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-dtc-count'), 10) || 0;
+      var cur = 0;
+      var step = Math.max(1, Math.ceil(target / 34));
+      var timer = setInterval(function(){
+        cur += step;
+        if(cur >= target){ cur = target; clearInterval(timer); }
+        el.textContent = cur;
+      }, 26);
+    });
+  }
+  var hero = document.getElementById('dtc-hero');
+  if(hero && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ runCount(); io.disconnect(); } });
+    }, { threshold: 0.25 });
+    io.observe(hero);
+  }else{ runCount(); }
+})();
+</script>
+</body>
+  </html>
